@@ -13,7 +13,13 @@ class ViewController: UIViewController{
 
     @IBAction func notePressed(_ sender: UIButton) {
         
-        guard let url = Bundle.main.url(forResource: "note1", withExtension: "wav")
+        playSound(soundName: "note\(sender.tag)", soundExtension: "wav")
+        
+    }
+    
+    func playSound(soundName: String, soundExtension: String) {
+        
+        guard let url = Bundle.main.url(forResource: "\(soundName)", withExtension: "\(soundExtension)")
             else { return }
         
         do {
